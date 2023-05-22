@@ -1,0 +1,55 @@
+@use 'styles/__' as *;
+
+._ {
+	background: $c-bg-tertiary;
+	color: $c-f-tertiary;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+	height: 192px;
+	padding: 0 116px;
+	transition-duration: 0.1s;
+	transition-property: height, padding;
+
+	@include m-l {
+		flex-direction: column;
+		justify-content: center;
+		height: auto;
+		padding: 40px 0;
+	}
+	@include m-s {
+		padding: 30px 0;
+	}
+}
+
+.other {
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	stroke: $c-f-tertiary;
+	transition-duration: 0.1s;
+	transition-property: gap, font-size, stroke;
+	@include _interactive;
+	@include m-l {
+		font-size: 16px;
+		gap: 5px;
+	}
+	&:hover {
+		color: rgba($c-f-tertiary, 0.7);
+		stroke: rgba($c-f-tertiary, 0.7);
+	}
+}
+
+.arrow {
+	width: 24px;
+}
+
+.filler {
+	@include m-l {
+		display: none;
+	}
+}

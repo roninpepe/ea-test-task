@@ -1,0 +1,105 @@
+@use 'styles/__' as *;
+
+@keyframes flash {
+	0% {
+		box-shadow: 0 0 10px 0 inset $c-bg-accents;
+	}
+	90% {
+		box-shadow: 0 0 10px 0 inset $c-bg-accents;
+	}
+	100% {
+		box-shadow: 0 0 0 0 inset $c-bg-accents;
+	}
+}
+
+._ {
+	background: $c-bg-main;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	width: 100%;
+	max-width: 440px;
+	border-radius: 50vh;
+	transition-duration: 0.1s;
+	transition-property: max-width, padding;
+	@include m-l {
+		padding: 4px;
+		max-width: 360px;
+	}
+	@include m-s {
+		max-width: 280px;
+	}
+}
+
+.input,
+.submit {
+	background: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	border-radius: 50vh;
+	height: 43px;
+	outline: none;
+	@include m-l {
+		height: 33px;
+	}
+}
+
+.input {
+	flex-shrink: 1;
+	flex-grow: 1;
+	font-size: 18px;
+	padding: 0 12px;
+	width: 100%;
+	min-width: 0;
+	box-shadow: 0 0 0 0 inset $c-bg-accents;
+	transition-duration: 0.1s;
+	transition-property: font-size, box-shadow, height;
+	@include m-l {
+		font-size: 14px;
+	}
+	&:not(:placeholder-shown):invalid {
+		box-shadow: 0 0 10px 0 inset $c-bg-accents;
+	}
+}
+
+.submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $c-bg-accents;
+	width: 43px;
+	transition-duration: 0.1s;
+	transition-property: background, width, height;
+	@include _interactive;
+	&:hover {
+		background: rgba($c-bg-accents, 0.9);
+	}
+	@include m-l {
+		width: 33px;
+	}
+}
+
+.arrow {
+	stroke: $c-f-tertiary;
+	width: 20px;
+	rotate: -90deg;
+	transition: width 0.1s;
+	@include m-l {
+		width: 16px;
+	}
+}
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 28px;
+	text-align: center;
+}
+
+.header {
+	color: $c-f-secondary;
+	font-size: 36px;
+}
